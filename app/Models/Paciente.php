@@ -21,4 +21,7 @@ class Paciente extends Model
       return $this->hasMany('App\Models\Medico');
     }
     
+    public function cita(){
+      return $this->hasMany('App\Models\Cita');
+    }
 }

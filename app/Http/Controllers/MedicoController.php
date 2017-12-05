@@ -17,9 +17,22 @@ class MedicoController extends Controller
     }
     
     public function show($id){
+        /*
         $medico = Medico::find($id);
         $usuario = $medico->usuario;
         
         return response()->json(['datos'=>$medico],202);
+        
+        */
+        $medico = Medico::find($id);
+    	if(!$medico){
+    		
+    		return response()->json(['errors'=>Array(['code'=>404,'message'=>'No tienes citas pendientes'])],404);
+    		
+    	}else{
+    		$medic = $medico->usuario;
+    		return $medico;
+    	}
+        
     }
 }
